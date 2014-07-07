@@ -9,22 +9,38 @@ $(function() {
             }                                                                        
           });                                                                          
      
-    $("#sortMe2").sortable({                                                    
+    $(".players").sortable({                                                    
+        update: function(event, ui){                                             
+            var item_order = $(this).sortable('toArray');                    
+            console.log(item_order);                                                                                                                         
+            var player_id = $(this).find('h2').attr('id');
+            $.ajax({
+                type: "GET",
+                url: $SCRIPT_ROOT + "/sort" + '/' + player_id,
+                contentType: "application/json; charset=utf-8",
+                data: {list: item_order},
+                success: function(data) {
+                    $('.players').text(data.value);
+            }
+        });                                            
+            }                                                                        
+          });
+    
+    $(".players_old").sortable({                                                    
         update: function(event, ui){                                             
             var item_order = $(this).sortable('toArray');                    
             console.log(item_order);                                                                                                                         
             $.ajax({
                 type: "GET",
-                url: $SCRIPT_ROOT + "/echo/",
+                url: $SCRIPT_ROOT + "/sort/",
                 contentType: "application/json; charset=utf-8",
                 data: {list: item_order},
                 success: function(data) {
-                    $('#players').html(data);
+                    $('.players').text(data.value);
             }
         });                                            
             }                                                                        
           });
-
     $("#submitBtn").click(function() {
         $.ajax({
             type: "GET",
