@@ -26,7 +26,7 @@ $(function() {
         }                                                                        
      });
     
-    $(".players_old").sortable({                                                    
+    $("#sortMe2").sortable({                                                    
         update: function(event, ui){                                             
             var item_order = $(this).sortable('toArray');                    
             console.log(item_order);                                                                                                                         
