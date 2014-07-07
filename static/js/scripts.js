@@ -21,10 +21,10 @@ $(function() {
                 data: {list: item_order},
                 success: function(data) {
                     $('.players').text(data.value);
-            }
-        });                                            
-            }                                                                        
-          });
+                }   
+               });                                            
+        }                                                                        
+     });
     
     $(".players_old").sortable({                                                    
         update: function(event, ui){                                             

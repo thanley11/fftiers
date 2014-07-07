@@ -30,14 +30,12 @@ def sort_order(player_id):
     result = { 'status':0, 'message': 'Error' }
     try:
         new_id = player_id
-        db.session.query(models.Player).filter_by(player_id=new_id).delete()
+        db.session.query(models.Player).filter_by(player_id=new_id)
         db.session.commit()
         result = {'status':1, 'message': "Player reordered" }
     except Exception as e:
         result = { 'status':0, 'message': repr(e) }
     return jsonify(result)
-
-    app.run()
 
 if __name__ == '__main__':
     app.run(
