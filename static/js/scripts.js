@@ -25,7 +25,11 @@ $(function() {
                });                                            
         }                                                                        
      });
-    
+   
+    $(".player").click(function(){
+        $(this).toggleClass('highlighted');
+    });
+
     $("#sortMe2").sortable({                                                    
         update: function(event, ui){                                             
             var item_order = $(this).sortable('toArray');                    

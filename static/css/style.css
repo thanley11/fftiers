@@ -7,3 +7,8 @@
 	padding: 10px;
 	background: #E5E5E5
 }
+
+.highlighted {
+    box-shadow: 0 0 8px #FFD700;
+    cursor:pointer;
+}
