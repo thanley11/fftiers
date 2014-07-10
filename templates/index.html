@@ -13,14 +13,16 @@
 	<hr />
     <ul class="players">
         {% for player in players %}
-        <li class="player"><h2 id={{ player.player_id }}>{{ player.name}}</h2></li>
+        <li data-id="{{ player.player_id }}">{{ player.name}}</li>
         {% else %}
         <li><em> No entries yet. Add some!</em></li>
         {% endfor %}
     </ul>
+    <input type="submit" value="Save" class="btn btn-primary" id="submit">
+    <a id="follow_unfollow_toggle" href="#" data-qid="test">Like</a>   
     <div class="row clearfix" align="center">
 		<div class="col-md-2 column">
-			<div id="sortMe2">
+			<div id="sortMe">
 				<div id="item_1">QB</div>
 				<div id="item_2">QB2</div>
 				<div id="item_3">QB3</div>

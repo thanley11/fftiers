@@ -1,51 +1,57 @@
-$(function() {                                                                 
-    $("#sortMe").sortable({                                                    
+$(function() {
+    $(".players2").sortable({                                                    
         update: function(event, ui){                                             
-            var item_order = $(this).sortable('toArray');                    
+           // var player_id = $('.player').data('pid');  //.find('h2').attr('pid');
+           // console.log(player_id);                                                                                                                         
+            var item_order = $(this).sortable('toArray');//,{attribute:'pid'});// {attribute:'player_id' });                    
             console.log(item_order);                                                                                                                         
-     $.post('save.py', {list: item_order}, function(o) {              
-                    console.log(o);                                              
-              }, 'json');                                                      
-            }                                                                        
-          });                                                                          
-     
+            $.ajax({
+                type: "POST",
+                url: $SCRIPT_ROOT + "/sort/",
+                contentType: "application/json; charset=utf-8",
+                data: {'pid': item_order},   // 'csrfmiddlewaretoken': '{{csrf_token}}'},
+                success: function(data) {
+                    alert('Success!');
+                    console.log(data);
+                },
+                error: function(rs, e){
+                    alert(rs.responseText);
+                }
+                });                                            
+                }                                                                        
+          });
+//var pid = {{ player.player_id }}'
     $(".players").sortable({                                                    
         update: function(event, ui){                                             
-            var item_order = $(this).sortable('toArray');                    
+            var item_order = $(this).sortable('toArray',{attribute:'data-id'});                    
             console.log(item_order);                                                                                                                         
-            var player_id = $(this).find('h2').attr('id');
+            //var player_id = $(this).find('h2').attr('id');
             $.ajax({
-                type: "GET",
-                url: $SCRIPT_ROOT + "/sort" + '/' + player_id,
+                type: "POST",
+                url: $SCRIPT_ROOT + "/sort/",
                 contentType: "application/json; charset=utf-8",
-                data: {list: item_order},
+                data: {pid: $(this).data('pid')},
                 success: function(data) {
-                    $('.players').text(data.value);
+                    $('.players').html(data.value);
+                   // pid = data;
                 }   
                });                                            
         }                                                                        
      });
-   
-    $(".player").click(function(){
-        $(this).toggleClass('highlighted');
-    });
+$(function () {
+        $("#follow_unfollow_toggle").click(function () {
+                    $.ajax({
+            type: "POST",
+            url: "/sort/",
+            data: { 'qid': $(this).data('qid') },
+            success: function (e) {
+                            alert('Success!');
+                                        }
+});
+                    });
+});
 
-    $("#sortMe2").sortable({                                                    
-        update: function(event, ui){                                             
-            var item_order = $(this).sortable('toArray');                    
-            console.log(item_order);                                                                                                                         
-            $.ajax({
-                type: "GET",
-                url: $SCRIPT_ROOT + "/sort/",
-                contentType: "application/json; charset=utf-8",
-                data: {list: item_order},
-                success: function(data) {
-                    $('.players').text(data.value);
-            }
-        });                                            
-            }                                                                        
-          });
-    $("#submitBtn").click(function() {
+$("#submitBtn").click(function() {
         $.ajax({
             type: "GET",
             url: $SCRIPT_ROOT + "/echo/",
@@ -57,7 +63,21 @@ $(function() {
         });
     });
         
+    $(".players1").sortable({                                                    
+        update: function(event, ui){                                             
+            var item_order = $(this).sortable('toArray'); //, {attribute:'player_id'});                    
+            console.log(item_order);                                                                                                                         
+     $.post('/sort/', {list: item_order}, function(o) {              
+                    console.log(o);                                              
+              }, 'json');                                                      
+            }                                                                        
+          });                                                                          
+      
 
+   
+    $(".player11").click(function(){
+        $(this).toggleClass('highlighted');
+    });
     $('#clickme').click(function(){
         alert('Im going to start processing');
          $.ajax({

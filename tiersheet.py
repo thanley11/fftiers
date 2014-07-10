@@ -1,7 +1,7 @@
-from flask import Flask, request, session, g, redirect, url_for, \
-    abort, render_template, flash, jsonify
+from flask import Flask, request, session, redirect, render_template, jsonify
 from flask.ext.sqlalchemy import SQLAlchemy
 import os
+
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -24,19 +24,16 @@ def index():
     players = db.session.query(models.Player)
     return render_template('index.html', players=players)
 
-@app.route('/sort/<int:player_id>', methods=['GET'])
-def sort_order(player_id):
+@app.route('/sort/', methods=['POST'])
+def sort_order():
     """Resorts player order"""
-    result = { 'status':0, 'message': 'Error' }
+    result = {'status':0, 'message': 'Error'}
     try:
-        new_id = player_id
-        db.session.query(models.Player).filter_by(player_id=new_id)
-        db.session.commit()
+        db.session.query(models.Player).filter_by(player_id=player_id)
         result = {'status':1, 'message': "Player reordered" }
     except Exception as e:
         result = { 'status':0, 'message': repr(e) }
     return jsonify(result)
-
 if __name__ == '__main__':
     app.run(
     host = '0.0.0.0'
