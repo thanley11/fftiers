@@ -11,40 +11,69 @@
 		</div>
 	</div>
 	<hr />
-    <ul class="players">
-        {% for player in players %}
-        <li data-id="{{ player.player_id }}">{{ player.name}}</li>
-        {% else %}
-        <li><em> No entries yet. Add some!</em></li>
-        {% endfor %}
-    </ul>
-    <input type="submit" value="Save" class="btn btn-primary" id="submit">
-    <a id="follow_unfollow_toggle" href="#" data-qid="test">Like</a>   
     <div class="row clearfix" align="center">
 		<div class="col-md-2 column">
-			<div id="sortMe">
-				<div id="item_1">QB</div>
-				<div id="item_2">QB2</div>
-				<div id="item_3">QB3</div>
-				<div id="item_4">QB4</div>
-				<div id="item_5">QB5</div>
-				<div id="item_6">QB6</div>
-			</div>
+            <div class="QBs">
+                QBs
+                {% for player in players %}
+                <ul data-id="{{ player.player_id }}">{{ player.name}}</ul>
+                {% else %}
+                <ul><em> No entries yet. Add some!</em></ul>
+                {% endfor %}
+            </div>
 		</div>
 		<div class="col-md-2 column">
-		RB
+            <div class="RBs">
+            RBs
+            <!-- need to check based on position -->
+            {% for player in players %}
+            <ul data-id="{{ player.player_id }}">{{ player.name}}</ul>
+            {% else %}
+            <ul><em> No entries yet. Add some!</em></ul>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-2 column">
+            <div class="WRs">
+            WRs
+            <!-- need to check based on position -->
+            {% for player in players %}
+            <ul data-id="{{ player.player_id }}">{{ player.name}}</ul>
+            {% else %}
+            <ul><em> No entries yet. Add some!</em></ul>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-2 column">
+            <div class="TEs">
+            TEs
+            <!-- need to check based on position -->
+            {% for player in players %}
+            <ul data-id="{{ player.player_id }}">{{ player.name}}</ul>
+            {% else %}
+            <ul><em> No entries yet. Add some!</em></ul>
+                {% endfor %}
+            </div>
 		</div>
 		<div class="col-md-2 column">
-		WR
-		</div>
-		<div class="col-md-2 column">
-		TE
-		</div>
-		<div class="col-md-2 column">
-			<div class="row">DEF</div>
-			<div class="row">K</div>
+			<div class="DEFs">
+                DEFs
+                {% for player in players %}
+                <ul data-id="{{ player.player_id }}">{{ player.name}}</ul>
+                {% else %}
+                <ul><em> No entries yet. Add some!</em></ul>
+                    {% endfor %}
+            </div>
+			<div class="Ks">
+                Ks
+                {% for player in players %}
+                <ul data-id="{{ player.player_id }}">{{ player.name}}</ul>
+                {% else %}
+                <ul><em> No entries yet. Add some!</em></ul>
+                    {% endfor %}
+            </div>
 		</div>
 	</div>
 </div>
-
+<input type="submit" value="Save" class="btn btn-primary" id="submit"></input>
 {% endblock %}

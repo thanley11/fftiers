@@ -20,12 +20,10 @@ $(function() {
                 });                                            
                 }                                                                        
           });
-//var pid = {{ player.player_id }}'
-    $(".players").sortable({                                                    
+    $(".QBs, .RBs").sortable({                                                    
         update: function(event, ui){                                             
             var item_order = $(this).sortable('toArray',{attribute:'data-id'});                    
             console.log(item_order);                                                                                                                         
-            //var player_id = $(this).find('h2').attr('id');
             $.ajax({
                 type: "POST",
                 url: $SCRIPT_ROOT + "/sort/",
