@@ -26,8 +26,8 @@
             <div class="RBs">
             RBs
             <!-- need to check based on position -->
-            {% for player in players %}
-            <ul data-id="{{ player.player_id }}">{{ player.name}}</ul>
+            {% for player in players|RB %}
+            <ul data-id="{{ player.player_id }}">{{ player.name }}, {{ player.position }}</ul>
             {% else %}
             <ul><em> No entries yet. Add some!</em></ul>
                 {% endfor %}
@@ -48,7 +48,7 @@
             <div class="TEs">
             TEs
             <!-- need to check based on position -->
-            {% for player in players %}
+            {% for player in players|TE %}
             <ul data-id="{{ player.player_id }}">{{ player.name}}</ul>
             {% else %}
             <ul><em> No entries yet. Add some!</em></ul>
@@ -58,7 +58,7 @@
 		<div class="col-md-2 column">
 			<div class="DEFs">
                 DEFs
-                {% for player in players %}
+                {% for player in players|DEF %}
                 <ul data-id="{{ player.player_id }}">{{ player.name}}</ul>
                 {% else %}
                 <ul><em> No entries yet. Add some!</em></ul>
@@ -66,7 +66,7 @@
             </div>
 			<div class="Ks">
                 Ks
-                {% for player in players %}
+                {% for player in players|K %}
                 <ul data-id="{{ player.player_id }}">{{ player.name}}</ul>
                 {% else %}
                 <ul><em> No entries yet. Add some!</em></ul>

@@ -8,8 +8,9 @@ class Player(db.Model):
     player_id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), unique=True)
     position = db.Column(db.Enum('QB', 'RB', 'WR', 'TE', 'DEF', 'K', name='player_position'))
+    #url
+    #bye
 
-# Differs
     def __init__(self, name, position):
         self.name     = name
         self.position = position

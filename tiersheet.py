@@ -29,27 +29,60 @@ def sort_order():
     """Resorts player order"""
     result = {'status':0, 'message': 'Error'}
     try:
-        db.models.Player.query.filter_by(player_id=player_id)
+        models.Player.query.filter_by(player_id=player_id)
         result = {'status':1, 'message': "Player reordered" }
     except Exception as e:
         result = { 'status':0, 'message': repr(e) }
     return jsonify(result)
 
 @app.template_filter('QB')
-def position_filter(s):
+def qb_filter(s):
     try:
         s = models.Player.query.filter_by(position="QB")
         return s
     except Exception as e:
         return repr(e)
 
+@app.template_filter('RB')
+def rb_filter(s):
+    try:
+        s = models.Player.query.filter_by(position="RB")
+        return s
+    except Exception as e:
+        return repr(e)
+
 @app.template_filter('WR')
-def position_filter(s):
+def wr_filter(s):
     try:
         s = models.Player.query.filter_by(position="WR")
         return s
     except Exception as e:
         return repr(e)
+
+@app.template_filter('TE')
+def te_filter(s):
+    try:
+        s = models.Player.query.filter_by(position="TE")
+        return s
+    except Exception as e:
+        return repr(e)
+
+@app.template_filter('DEF')
+def def_filter(s):
+    try:
+        s = models.Player.query.filter_by(position="DEF")
+        return s
+    except Exception as e:
+        return repr(e)
+
+@app.template_filter('K')
+def k_filter(s):
+    try:
+        s = models.Player.query.filter_by(position="K")
+        return s
+    except Exception as e:
+        return repr(e)
+
 
 if __name__ == '__main__':
     app.run(
