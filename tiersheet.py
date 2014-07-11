@@ -29,11 +29,28 @@ def sort_order():
     """Resorts player order"""
     result = {'status':0, 'message': 'Error'}
     try:
-        db.session.query(models.Player).filter_by(player_id=player_id)
+        db.models.Player.query.filter_by(player_id=player_id)
         result = {'status':1, 'message': "Player reordered" }
     except Exception as e:
         result = { 'status':0, 'message': repr(e) }
     return jsonify(result)
+
+@app.template_filter('QB')
+def position_filter(s):
+    try:
+        s = models.Player.query.filter_by(position="QB")
+        return s
+    except Exception as e:
+        return repr(e)
+
+@app.template_filter('WR')
+def position_filter(s):
+    try:
+        s = models.Player.query.filter_by(position="WR")
+        return s
+    except Exception as e:
+        return repr(e)
+
 if __name__ == '__main__':
     app.run(
     host = '0.0.0.0'

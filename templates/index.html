@@ -15,8 +15,8 @@
 		<div class="col-md-2 column">
             <div class="QBs">
                 QBs
-                {% for player in players %}
-                <ul data-id="{{ player.player_id }}">{{ player.name}}</ul>
+                {% for player in players|QB %}
+                <ul data-id="{{ player.player_id }}">{{ player.name }}, {{ player.position }}</ul>
                 {% else %}
                 <ul><em> No entries yet. Add some!</em></ul>
                 {% endfor %}
@@ -37,7 +37,7 @@
             <div class="WRs">
             WRs
             <!-- need to check based on position -->
-            {% for player in players %}
+            {% for player in players|WR %}
             <ul data-id="{{ player.player_id }}">{{ player.name}}</ul>
             {% else %}
             <ul><em> No entries yet. Add some!</em></ul>
