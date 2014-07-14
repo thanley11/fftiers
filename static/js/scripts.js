@@ -20,22 +20,27 @@ $(function() {
                 });                                            
                 }                                                                        
           });
-    $("#QBs, #RBs, #WRs, #TEs, #DEFs, #Ks").sortable({                                                    
+    $("#QBs, #RBs, #WRs, #TEs, #DEFs, #Ks").sortable({ 
+        connectWith: ".sortable",
         update: function(event, ui){                                             
-            var item_order = $(this).sortable('toArray',{attribute:'data-id'});                    
-            console.log(item_order);                                                                                                                         
+            var qb_order = $("#QBs").sortable('toArray',{attribute:'data-pid'});
+            var rb_order = $("#RBs").sortable('toArray',{attribute:'data-pid'});
+            console.log(qb_order, rb_order);                                                                                                                         
             $.ajax({
                 type: "POST",
                 url: $SCRIPT_ROOT + "/sort/",
                 contentType: "application/json; charset=utf-8",
-                data: {pid: $(this).data('pid')},
+                data: {'pid' : qb_order+rb_order},
+                // []=2[]=1
                 success: function(data) {
-                    $('.players').html(data.value);
-                   // pid = data;
+                    console.log(data);
                 }   
                });                                            
         }                                                                        
      });
+
+//data:$("#sortable1").sortable('serialize')+'&'+$("#sortable2").sortable('serialize')
+
 $(function () {
         $("#follow_unfollow_toggle").click(function () {
                     $.ajax({

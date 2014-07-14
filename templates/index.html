@@ -16,7 +16,7 @@
             <div class="sortable" id="QBs">
                 QBs
                 {% for player in players|QB %}
-                <ul data-id="{{ player.player_id }}">{{ player.name }}, {{ player.bye}} <a href="{{ player.url }}">Link</a></ul>
+                <ul data-pid="{{ player.player_id }}">{{ player.name }}, {{ player.bye}} <a href="{{ player.url }}">Link</a></ul>
                 {% else %}
                 <ul><em> No entries yet. Add some!</em></ul>
                 {% endfor %}
@@ -27,7 +27,7 @@
             RBs
             <!-- need to check based on position -->
             {% for player in players|RB %}
-            <ul data-id="{{ player.player_id }}">{{ player.name }}, {{ player.bye}}</ul>
+            <ul data-pid="{{ player.player_id }}">{{ player.name }}, {{ player.bye}}</ul>
             {% else %}
             <ul><em> No entries yet. Add some!</em></ul>
                 {% endfor %}
@@ -38,7 +38,7 @@
             WRs
             <!-- need to check based on position -->
             {% for player in players|WR %}
-            <ul data-id="{{ player.player_id }}">{{ player.name}}, {{ player.bye}}</ul>
+            <ul data-pid="{{ player.player_id }}">{{ player.name}}, {{ player.bye}}</ul>
             {% else %}
             <ul><em> No entries yet. Add some!</em></ul>
                 {% endfor %}
@@ -49,7 +49,7 @@
             TEs
             <!-- need to check based on position -->
             {% for player in players|TE %}
-            <ul data-id="{{ player.player_id }}">{{ player.name}}, {{ player.bye}}</ul>
+            <ul data-pid="{{ player.player_id }}">{{ player.name}}, {{ player.bye}}</ul>
             {% else %}
             <ul><em> No entries yet. Add some!</em></ul>
                 {% endfor %}
@@ -59,7 +59,7 @@
 			<div class="sortable" id="DEFs">
                 DEFs
                 {% for player in players|DEF %}
-                <ul data-id="{{ player.player_id }}">{{ player.name}}, {{ player.bye}}</ul>
+                <ul data-pid="{{ player.player_id }}">{{ player.name}}, {{ player.bye}}</ul>
                 {% else %}
                 <ul><em> No entries yet. Add some!</em></ul>
                     {% endfor %}
@@ -67,7 +67,7 @@
 			<div class="sortable" id="Ks">
                 Ks
                 {% for player in players|K %}
-                <ul data-id="{{ player.player_id }}">{{ player.name}}, {{ player.bye}}</ul>
+                <ul data-pid="{{ player.player_id }}">{{ player.name}}, {{ player.bye}}</ul>
                 {% else %}
                 <ul><em> No entries yet. Add some!</em></ul>
                     {% endfor %}

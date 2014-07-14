@@ -29,8 +29,8 @@ def sort_order():
     """Resorts player order"""
     result = {'status':0, 'message': 'Error'}
     try:
-        models.Player.query.filter_by(player_id=player_id)
-        result = {'status':1, 'message': "Player reordered" }
+        pid = request.args.get('pid')
+        result = {'status':1, 'message': str(pid) }
     except Exception as e:
         result = { 'status':0, 'message': repr(e) }
     return jsonify(result)
