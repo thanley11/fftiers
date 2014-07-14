@@ -29,8 +29,10 @@ $(function() {
             $.ajax({
                 type: "POST",
                 url: $SCRIPT_ROOT + "/sort/",
-                contentType: "application/json; charset=utf-8",
-                data: {'pid' : qb_order+rb_order},
+                dataType: 'json',
+                // this was causing problems reading the variable items and returning undefined values
+                // contentType: "application/json; charset=utf-8",
+                data: {'pid' : qb_order+','+rb_order},
                 // []=2[]=1
                 success: function(data) {
                     console.log(data);
