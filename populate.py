@@ -19,6 +19,8 @@ def populate():
     player_8 = add_player('Julius Thomas','TE',2,'http://www.espn.com')
     player_9 = add_player('Denver','DEF',3,'http://www.espn.com')
     player_10 = add_player('Seattle','DEF',4,'http://www.espn.com')
+    player_11 = add_player('Dan Bailey','K',4,'http://www.espn.com')
+    player_12 = add_player('Matt Prater','K',4,'http://www.espn.com')
 
 
 def add_player(name,position,bye,url):

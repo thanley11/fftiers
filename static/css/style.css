@@ -6,37 +6,37 @@
           box-sizing: content-box;
 }
 
-.QBs {
+#QBs {
 	border: 1px solid silver;
 	}
 
-.QBs ul {
+#QBs ul {
 	margin: 5px;
 	padding: 10px;
 	background: #E1EDFF    
 }
 
-.RBs ul {
+#RBs ul {
 	margin: 5px;
 	padding: 10px;
 	background: #BDD3F2
 }
-.WRs ul {
+#WRs ul {
 	margin: 5px;
 	padding: 10px;
 	background: #90E0CC
 }
-.TEs ul {
+#TEs ul {
 	margin: 5px;
 	padding: 10px;
 	background: #CCB098
 }
-.DEFs ul {
+#DEFs ul {
 	margin: 5px;
 	padding: 10px;
 	background: #F2E0BD
 }
-.Ks ul {
+#Ks ul {
 	margin: 5px;
 	padding: 10px;
 	background: #87E585

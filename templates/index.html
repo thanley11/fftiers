@@ -13,61 +13,61 @@
     <br/>
     <div class="row clearfix" align="center">
 		<div class="col-md-2 column">
-            <div class="QBs">
+            <div class="sortable" id="QBs">
                 QBs
                 {% for player in players|QB %}
-                <ul data-id="{{ player.player_id }}">{{ player.name }}, {{ player.position }}</ul>
+                <ul data-id="{{ player.player_id }}">{{ player.name }}, {{ player.bye}} <a href="{{ player.url }}">Link</a></ul>
                 {% else %}
                 <ul><em> No entries yet. Add some!</em></ul>
                 {% endfor %}
             </div>
 		</div>
 		<div class="col-md-2 column">
-            <div class="RBs">
+            <div class="sortable" id="RBs">
             RBs
             <!-- need to check based on position -->
             {% for player in players|RB %}
-            <ul data-id="{{ player.player_id }}">{{ player.name }}, {{ player.position }}</ul>
+            <ul data-id="{{ player.player_id }}">{{ player.name }}, {{ player.bye}}</ul>
             {% else %}
             <ul><em> No entries yet. Add some!</em></ul>
                 {% endfor %}
             </div>
         </div>
         <div class="col-md-2 column">
-            <div class="WRs">
+            <div class="sortable" id="WRs">
             WRs
             <!-- need to check based on position -->
             {% for player in players|WR %}
-            <ul data-id="{{ player.player_id }}">{{ player.name}}</ul>
+            <ul data-id="{{ player.player_id }}">{{ player.name}}, {{ player.bye}}</ul>
             {% else %}
             <ul><em> No entries yet. Add some!</em></ul>
                 {% endfor %}
             </div>
         </div>
         <div class="col-md-2 column">
-            <div class="TEs">
+            <div class="sortable" id="TEs">
             TEs
             <!-- need to check based on position -->
             {% for player in players|TE %}
-            <ul data-id="{{ player.player_id }}">{{ player.name}}</ul>
+            <ul data-id="{{ player.player_id }}">{{ player.name}}, {{ player.bye}}</ul>
             {% else %}
             <ul><em> No entries yet. Add some!</em></ul>
                 {% endfor %}
             </div>
 		</div>
 		<div class="col-md-2 column">
-			<div class="DEFs">
+			<div class="sortable" id="DEFs">
                 DEFs
                 {% for player in players|DEF %}
-                <ul data-id="{{ player.player_id }}">{{ player.name}}</ul>
+                <ul data-id="{{ player.player_id }}">{{ player.name}}, {{ player.bye}}</ul>
                 {% else %}
                 <ul><em> No entries yet. Add some!</em></ul>
                     {% endfor %}
             </div>
-			<div class="Ks">
+			<div class="sortable" id="Ks">
                 Ks
                 {% for player in players|K %}
-                <ul data-id="{{ player.player_id }}">{{ player.name}}</ul>
+                <ul data-id="{{ player.player_id }}">{{ player.name}}, {{ player.bye}}</ul>
                 {% else %}
                 <ul><em> No entries yet. Add some!</em></ul>
                     {% endfor %}

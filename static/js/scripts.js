@@ -20,7 +20,7 @@ $(function() {
                 });                                            
                 }                                                                        
           });
-    $(".QBs, .RBs, .WRs, .TEs, .DEFs, .Ks").sortable({                                                    
+    $("#QBs, #RBs, #WRs, #TEs, #DEFs, #Ks").sortable({                                                    
         update: function(event, ui){                                             
             var item_order = $(this).sortable('toArray',{attribute:'data-id'});                    
             console.log(item_order);                                                                                                                         
